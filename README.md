@@ -1,13 +1,16 @@
 # PartnerCenterLW
 
-This is a simple module that implements the New-PartnerAccessToken command for the secure application model. This allows MSPs to run the vast magority of M365 scripts without having to load the full module. This provides PSCore compatibility and stops the conflicts between Partner Centre and other modules.
+This is a simple module that implements the New-PartnerAccessToken command for the secure application model. This allows MSPs to run the vast magority of M365 scripts without having to load the full module. This provides PSCore compatibility and stops the conflicts between Partner Centre and other modules. It is designed to be a drop in replacement only needing you to add LW to existing PartnerCenter references.
   
 
 # Installation instructions
 
-This module has been published to the PowerShell Gallery. Use the following command to install:  
+This module has been published to the PowerShell Gallery. In your script edit:  
 
-    install-module PartnerCenterLW
+    "install-module PartnerCenter" to be "install-module PartnerCenterLW"
+    "import-module PartnerCenter" to be "import-module PartnerCenterLW"
+
+No other changes should be needed.
 
 
 # Usage
@@ -15,7 +18,7 @@ This module has been published to the PowerShell Gallery. Use the following comm
 **Examples:**
 For more context on how to use these commands I suggest you check out https://www.cyberdrain.com/ or my blog https://mspp.io 
 
-Obtain an Azure AD Graph Token for your Tenant of a customer tenant
+Obtain an Azure AD Graph Token for your Tenant or a customer tenant
 ```powershell
 Import-Module PartnerCenterLW
 $credential = New-Object System.Management.Automation.PSCredential($ApplicationId, $ApplicationSecret)
@@ -23,7 +26,7 @@ $aadGraphToken = New-PartnerAccessToken -ApplicationId $ApplicationId -Credentia
 $CustAadGraphToken = New-PartnerAccessToken -ApplicationId $ApplicationId -Credential $credential -RefreshToken $refreshToken -Scopes "https://graph.windows.net/.default" -ServicePrincipal -Tenant $customer.CustomerContextId
 ```
 
-Obtain a Graph Token for your Tenant of a customer tenant
+Obtain a Graph Token for your Tenant or a customer tenant
 ```powershell
 $graphToken = New-PartnerAccessToken -ApplicationId $ApplicationId -Credential $credential -RefreshToken $refreshToken -Scopes 'https://graph.microsoft.com/.default' -ServicePrincipal -Tenant $tenantID 
 $CustGraphToken = New-PartnerAccessToken -ApplicationId $ApplicationId -Credential $credential -RefreshToken $refreshToken -Scopes "https://graph.microsoft.com/.default" -ServicePrincipal -Tenant $customer.CustomerContextId
