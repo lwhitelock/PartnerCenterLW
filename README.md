@@ -1,4 +1,4 @@
-# PartnerCenterLW
+# PartnerCenterLW - Light Weight Partner Centre Module
 
 This is a simple module that implements the New-PartnerAccessToken command for the secure application model. This allows MSPs to run the vast magority of M365 scripts without having to load the full module. This provides PSCore compatibility and stops the conflicts between Partner Centre and other modules. It is designed to be a drop in replacement only needing you to add LW to existing PartnerCenter references.
   
