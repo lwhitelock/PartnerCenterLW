@@ -1,4 +1,4 @@
-# PartnerCenterLW
+# PartnerCenterLW - Light Weight Partner Centre Module
 
 This is a simple module that implements the New-PartnerAccessToken command for the secure application model. This allows MSPs to run the vast magority of M365 scripts without having to load the full module. This provides PSCore compatibility and stops the conflicts between Partner Centre and other modules. It is designed to be a drop in replacement only needing you to add LW to existing PartnerCenter references.
   
@@ -40,30 +40,11 @@ $token = New-PartnerAccessToken -ApplicationId 'a0c73c16-a7e3-4564-9a95-2bdf4738
 Alerternatively you can Paste the function directly in your code to avoid having to import the module at all
 ```powershell
 function New-PartnerAccessToken {
-    param (
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'Credentials')]
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'RefreshTokenOnly')]
+     param (
         [String]$ApplicationId,
-
-        [Parameter(ParameterSetName = 'Credentials')]
         [PSCredential]$Credential,
-
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'Credentials')]
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'RefreshTokenOnly')]
         [String]$RefreshToken,
-
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'Credentials')]
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'RefreshTokenOnly')]
         [String]$Scopes,
-        
-        [Parameter(ParameterSetName = 'Credentials')]
-        [Parameter(ParameterSetName = 'RefreshTokenOnly')]
         [string]$Tenant
     )
 	
