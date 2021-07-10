@@ -1,29 +1,9 @@
 function global:New-PartnerAccessTokenLW {
     param (
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'Credentials')]
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'RefreshTokenOnly')]
         [String]$ApplicationId,
-
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'Credentials')]
         [PSCredential]$Credential,
-
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'Credentials')]
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'RefreshTokenOnly')]
         [String]$RefreshToken,
-
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'Credentials')]
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'RefreshTokenOnly')]
         [String]$Scopes,
-        
-        [Parameter(ParameterSetName = 'Credentials')]
-        [Parameter(ParameterSetName = 'RefreshTokenOnly')]
         [string]$Tenant
     )
 	
@@ -60,6 +40,7 @@ function global:New-PartnerAccessTokenLW {
     }
     catch {
         Write-Error "Authentication Error Occured $_"
+        return
     }
 
     $ParsedCred = @{
