@@ -13,6 +13,8 @@ This module has been published to the PowerShell Gallery. Use the following comm
 # Usage
   
 **Examples:**
+For more context on how to use these commands I suggest you check out https://www.cyberdrain.com/ or my blog https://mspp.io 
+
 Obtain an Azure AD Graph Token for your Tenant of a customer tenant
 ```powershell
 Import-Module PartnerCenterLW
@@ -106,4 +108,4 @@ function New-PartnerAccessToken {
 }
 ```
 
-For more context on how to use these commands I suggest you check out https://www.cyberdrain.com/ or my blog https://mspp.io 
+
