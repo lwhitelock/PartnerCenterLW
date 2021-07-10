@@ -40,30 +40,11 @@ $token = New-PartnerAccessToken -ApplicationId 'a0c73c16-a7e3-4564-9a95-2bdf4738
 Alerternatively you can Paste the function directly in your code to avoid having to import the module at all
 ```powershell
 function New-PartnerAccessToken {
-    param (
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'Credentials')]
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'RefreshTokenOnly')]
+     param (
         [String]$ApplicationId,
-
-        [Parameter(ParameterSetName = 'Credentials')]
         [PSCredential]$Credential,
-
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'Credentials')]
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'RefreshTokenOnly')]
         [String]$RefreshToken,
-
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'Credentials')]
-        [Parameter(Mandatory = $true,
-        ParameterSetName = 'RefreshTokenOnly')]
         [String]$Scopes,
-        
-        [Parameter(ParameterSetName = 'Credentials')]
-        [Parameter(ParameterSetName = 'RefreshTokenOnly')]
         [string]$Tenant
     )
 	
