@@ -9,5 +9,6 @@ foreach ($import in @($Public))
     {
         Write-Error -Message "Failed to import function $($import.FullName): $_"
     }
-    Set-Alias -Name New-PartnerAccessToken -Value New-PartnerAccessTokenLW -Scope Global
+    
 }
+Set-Alias -Name New-PartnerAccessToken -Value New-PartnerAccessTokenLW -Scope Global
