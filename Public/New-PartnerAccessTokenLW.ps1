@@ -9,7 +9,7 @@ function global:New-PartnerAccessTokenLW {
 	
     if ($Credential) {
 		$bstr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($Credential.password)
-		$AppPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
+		$AppPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($bstr)
         $AuthBody = @{
             client_id     = $ApplicationId
             scope         = $Scopes
